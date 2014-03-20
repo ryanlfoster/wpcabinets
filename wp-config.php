@@ -15,11 +15,12 @@ define('CABINETS_ENV', ( $cabinets_env == 'production' || $cabinets_env == 'stag
 unset($cabinets_env);
 
 /** URL and Folder Structure **/
-define('ABSPATH', dirname(__FILE__) . '/' );
+define('ABSPATH', dirname(__FILE__) . '/wp/' );
+define('WP_CONTENT_DIR', dirname(__FILE__) . '/app');
+
 define('WP_HOME', getenv('WP_HOME'));
 define('WP_SITEURL', getenv('WP_SITEURL'));
-define('WP_CONTENT_DIR', ABSPATH . '/app');
-define('WP_CONTENT_URL', WP_HOME . '/app');
+define('WP_CONTENT_URL', WP_SITEURL . '/app');
 
 /** MySQL Connection **/
 define('DB_HOST', getenv('DB_HOST') );
@@ -52,4 +53,4 @@ require_once('config/application.php');
 require_once( dirname(__FILE__) . '/config/' . CABINETS_ENV . '.php' );
 
 /** Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp/wp-settings.php');
+require_once(ABSPATH . 'wp-settings.php');
